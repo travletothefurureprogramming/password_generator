@@ -35,7 +35,7 @@ A small Python project for generating random passwords and checking their streng
 
 ## How to run
 
-Download and start the .exe from (releases)[https://github.com/travletothefurureprogramming/password_generator/releases] choose an option from the menu.
+Download and start the .exe from [releases](https://github.com/travletothefurureprogramming/password_generator/releases) choose an option from the menu.
 
 ## For Developers
 
