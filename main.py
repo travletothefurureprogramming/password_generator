@@ -6,6 +6,22 @@ print("|     PASSWORD GENERATOR    |")
 print("|       WELCOME BACK        |")
 print("-----------------------------")
 
+def save_to_history(password, file="history.txt"):
+    with open(file, "a") as f:
+        f.write("\n" + password)
+
+
+def read_history(file="history.txt"):
+    try:
+        with open(file, "r") as f:
+            text = f.read()
+
+        return text
+
+    except FileNotFoundError:
+        return "No password history yet."
+
+
 def check_password_strength():
     score = 0
 
@@ -150,6 +166,8 @@ def generate_password():
 
     password = "".join(password)
 
+    save_to_history(password)
+
     print("Strong password:", password)
 
 
@@ -168,5 +186,8 @@ while True:
         generate_password()
     elif user_input in "2":
         check_password_strength()
+    elif user_input == "3":
+        print("\nPassword History:")
+        print(read_history())
     elif user_input in "4":
         exit()
