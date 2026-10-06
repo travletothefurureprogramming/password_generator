@@ -1,11 +1,6 @@
 import random
 import string
 
-s1 = list(string.ascii_lowercase)
-s2 = list(string.ascii_uppercase)
-s3 = list(string.digits)
-s4 = list(string.punctuation)
-
 print("-----------------------------")
 print("|     PASSWORD GENERATOR    |")
 print("|       WELCOME BACK        |")
@@ -33,25 +28,24 @@ while True:
         user_input = input("How many characters do you want in your password? ")
 
 
-random.shuffle(s1)
-random.shuffle(s2)
-random.shuffle(s3)
-random.shuffle(s4)
+lowercase = string.ascii_lowercase
+uppercase = string.ascii_uppercase
+digits = string.digits
+punctuation = string.punctuation
 
-part1 = round(characters_number * (30/100))
-part2 = round(characters_number * (20/100))
+password = [
+    random.choice(lowercase),
+    random.choice(uppercase),
+    random.choice(digits),
+    random.choice(punctuation)
+]
 
-result = []
+all_characters = lowercase + uppercase + digits + punctuation
 
-for x in range(part1):
-    result.append(s1[x])
-    result.append(s2[x])
+for _ in range(characters_number - 4):
+    password.append(random.choice(all_characters))
 
-for x in range(part2):
-    result.append(s1[x])
-    result.append(s2[x])
+random.shuffle(password)
 
-random.shuffle(result)
-
-password = "".join(result)
+password = "".join(password)
 print("Strong password: ", password)
